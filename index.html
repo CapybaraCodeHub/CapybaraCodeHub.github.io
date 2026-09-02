@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Natalia Barakova — data and brand analytics, Python, finance, QA and enterprise systems. Based in Mexico, UTC−5."
+    content="Natalia Barakova — Data & Brand Analytics, Python, Data Visualization, QA and enterprise systems. Based in Mexico, UTC−5."
   >
 
   <style>
@@ -18,13 +18,13 @@
       color: #222222;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 42px 22px 70px;
+      max-width: 760px;
+      margin: 0;
+      padding: 42px 40px 70px;
     }
 
     h1 {
@@ -53,8 +53,6 @@
       text-decoration-thickness: 2px;
     }
 
-    /* Language navigation */
-
     .languages {
       margin: 7px 0 28px;
       font-size: 14px;
@@ -64,8 +62,6 @@
     .languages strong {
       margin-right: 11px;
     }
-
-    /* Photo */
 
     .photo {
       display: block;
@@ -77,27 +73,22 @@
       object-position: center 32%;
     }
 
-    /* Intro */
-
     .intro {
+      max-width: 720px;
       font-size: 17px;
-    }
-
-    .intro strong {
-      font-weight: 600;
     }
 
     .muted {
       color: #666666;
     }
 
-    /* Sections */
-
     .work-item {
+      max-width: 720px;
       margin-bottom: 17px;
     }
 
     .project {
+      max-width: 720px;
       margin-bottom: 30px;
     }
 
@@ -113,11 +104,10 @@
     }
 
     .path {
+      max-width: 720px;
       margin: 23px 0;
       color: #444444;
     }
-
-    /* Links */
 
     .links {
       margin-top: 20px;
@@ -127,7 +117,13 @@
       margin-right: 13px;
     }
 
-    /* Footer */
+    .note {
+      max-width: 720px;
+      margin: 28px 0;
+      padding-left: 16px;
+      border-left: 3px solid #dddddd;
+      color: #444444;
+    }
 
     footer {
       margin-top: 55px;
@@ -135,6 +131,10 @@
       border-top: 1px solid #dddddd;
       color: #666666;
       font-size: 14px;
+    }
+
+    footer a {
+      color: #666666;
     }
 
     @media (max-width: 600px) {
@@ -162,16 +162,11 @@
   </style>
 </head>
 
-
 <body>
 
 <main>
 
-  <!-- NAME -->
-
   <h1>Natalia Barakova</h1>
-
-  <!-- LANGUAGES -->
 
   <div class="languages">
     <strong>EN</strong>
@@ -180,17 +175,11 @@
     <a href="/ai/">AI</a>
   </div>
 
-
-  <!-- PHOTO -->
-
   <img
     class="photo"
     src="/foto.jpg"
     alt="Natalia Barakova"
   >
-
-
-  <!-- INTRO -->
 
   <div class="intro">
 
@@ -215,27 +204,37 @@
 
   </div>
 
-
-  <!-- LINKS -->
-
   <p class="links">
-    <a href="#work">What I do</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
+
+    <a href="#work">
+      What I do
+    </a>
+
+    <a href="#projects">
+      Projects
+    </a>
+
+    <a href="#about">
+      About
+    </a>
+
     <a
       href="https://github.com/CapybaraCodeHub"
       target="_blank"
       rel="noopener"
-    >GitHub</a>
+    >
+      GitHub
+    </a>
+
     <a
       href="https://huggingface.co/CapybaraCodeHub"
       target="_blank"
       rel="noopener"
-    >Hugging Face</a>
+    >
+      Hugging Face
+    </a>
+
   </p>
-
-
-  <!-- WHAT I DO -->
 
   <section id="work">
 
@@ -243,43 +242,41 @@
 
     <div class="work-item">
       <strong>Data & Brand Analytics.</strong>
-      I work with data, look for patterns, compare performance
-      and turn information into something easier to understand.
+      I analyze data, look for patterns, compare metrics
+      and turn numbers into something clear and useful.
     </div>
 
     <div class="work-item">
       <strong>Python & small tools.</strong>
-      I use Python for data processing, automation and practical tools
-      that reduce repetitive manual work.
+      I use Python for data processing, automation
+      and small practical tools that remove repetitive work.
     </div>
 
     <div class="work-item">
       <strong>Finance & business data.</strong>
-      I have eight years of hands-on experience working with accounting,
-      financial data, Excel and 1C in an international environment.
+      I have eight years of hands-on accounting experience:
+      financial data, Excel, reporting, business processes
+      and 1C in an international environment.
     </div>
 
     <div class="work-item">
       <strong>QA, 1C & integrations.</strong>
-      I work with enterprise systems, APIs, integration testing,
-      data validation and data flows between systems.
+      I test enterprise systems, APIs and integrations,
+      validate data quality and investigate how data moves
+      between systems.
     </div>
 
     <div class="work-item">
       <strong>AI-assisted work.</strong>
-      I use AI tools in everyday work for research, analysis,
-      coding, prototyping and working with information.
+      I use AI for research, analysis, prototyping,
+      coding and working with large amounts of context.
     </div>
 
   </section>
 
-
-  <!-- PROJECTS -->
-
   <section id="projects">
 
-    <h2>Things I've built</h2>
-
+    <h2>Projects</h2>
 
     <div class="project">
 
@@ -288,9 +285,14 @@
       </div>
 
       <p>
-        A small Python tool I built for myself and my colleagues
+        A small Python tool I built for myself and my team
         to automate repetitive formatting of Excel headers and field lists.
-        It became a practical tool used in day-to-day work.
+      </p>
+
+      <p>
+        It converts prepared text into several formats,
+        making it easier to work with structured field lists.
+        The tool was used by my colleagues in their day-to-day work.
       </p>
 
       <p>
@@ -309,7 +311,6 @@
 
     </div>
 
-
     <div class="project">
 
       <div class="project-title">
@@ -317,9 +318,14 @@
       </div>
 
       <p>
-        An internal Python tool for checking outgoing integration data
-        against technical specifications, detecting inconsistencies
-        and generating structured HTML and Excel reports.
+        Python tool for automated analysis of outgoing integration data
+        against technical specifications.
+      </p>
+
+      <p>
+        It processes JSON messages, matches them with specification rules,
+        detects inconsistencies and generates structured reports
+        for technical teams.
       </p>
 
       <div class="tech">
@@ -330,7 +336,6 @@
 
     </div>
 
-
     <div class="project">
 
       <div class="project-title">
@@ -338,8 +343,8 @@
       </div>
 
       <p>
-        An internal REST API for automated product-name validation
-        and data-quality checks in enterprise integrations.
+        REST API for automated product name validation
+        and data quality checks in enterprise integrations.
       </p>
 
       <div class="tech">
@@ -350,7 +355,6 @@
 
     </div>
 
-
     <div class="project">
 
       <div class="project-title">
@@ -358,142 +362,107 @@
       </div>
 
       <p>
-        My professional experience also includes brand analytics
-        and data visualization.
+        My professional work also includes
+        brand analytics and data visualization.
       </p>
 
       <div class="tech">
         The underlying data, project materials and results are confidential,
-        so I can't publish the case publicly.
+        so I can't publish a public case.
       </div>
 
     </div>
 
   </section>
 
-
-  <!-- BACKGROUND -->
-
   <section id="about">
 
-    <h2>A little background</h2>
+    <h2>About</h2>
 
     <p>
-      My career didn't start in IT.
+      I didn't start my career in tech.
     </p>
 
     <p>
-      I spent <strong>eight years working in accounting and finance</strong>
-      in an international environment, working with financial data,
-      Excel, business processes and 1C systems.
+      Before moving into IT, I spent
+      <strong>eight years working in accounting and finance</strong>
+      in an international environment — with 1C, Excel,
+      financial data, reporting and real business processes.
     </p>
 
     <p>
-      That gave me something I still use every day:
-      an understanding of real business processes and real-world data —
-      including the messy parts.
+      I think that's one of the reasons I'm still especially interested
+      in what actually happens to data in real systems,
+      not only in how it is supposed to look in documentation.
     </p>
 
     <div class="path">
-      Accounting & finance
+      Accounting & Finance
       →
-      1C & business systems
+      1C & Business Systems
       →
-      QA & integrations
+      QA & Integrations
       →
-      Python & automation
+      Python & Automation
       →
-      Data & analytics
+      Data & Analytics
     </div>
 
     <p>
-      Then came QA, enterprise systems, integrations, APIs,
-      Python and automation.
+      Then came QA, integrations, APIs, Python and automation.
     </p>
 
     <p>
-      Over time I became more interested not only in finding errors,
-      but in understanding the data behind them.
+      Over time, I became interested not only in finding an error,
+      but in understanding
+      <strong>why it happened and what the data itself can tell us</strong>.
     </p>
 
-    <p>
+    <div class="note">
       So yes, I know both what a REST API is
       and why numbers sometimes don't reconcile. :)
-    </p>
+    </div>
 
   </section>
-
-
-  <!-- NOW -->
 
   <section>
 
     <h2>Now</h2>
 
     <p>
-      I'm currently interested in projects around data analysis,
+      Right now I'm interested in projects involving data analysis,
       brand analytics, visualization, Python tools
-      and AI-assisted workflows.
+      and practical AI-assisted workflows.
     </p>
 
     <p>
-      I'm based in <strong>Mexico</strong> and work in
-      <strong>UTC−5</strong>.
+      I'm based in <strong>Mexico</strong>
+      and work in <strong>UTC−5</strong>.
     </p>
 
     <p>
-      I can work in English, Spanish, Russian —
-      or all three when needed.
+      I'm open to international remote projects
+      in English, Spanish or Russian —
+      including multilingual teams.
     </p>
 
     <p class="muted">
-      English B1 · Español B1 · Русский — native
+      Russian — native · English B1 · Spanish B1
     </p>
 
   </section>
-
-
-  <!-- LINKS -->
-
-  <section>
-
-    <h2>Links</h2>
-
-    <p>
-      <a
-        href="https://github.com/CapybaraCodeHub"
-        target="_blank"
-        rel="noopener"
-      >
-        GitHub
-      </a>
-
-      ·
-
-      <a
-        href="https://huggingface.co/CapybaraCodeHub"
-        target="_blank"
-        rel="noopener"
-      >
-        Hugging Face
-      </a>
-    </p>
-
-  </section>
-
-
-  <!-- FOOTER -->
 
   <footer>
-
     <p>
-      Natalia Barakova · Mexico · UTC−5
+      Always evolving ·
+      <a
+        href="https://t.me/super_nyaka"
+        target="_blank"
+        rel="noopener"
+      >
+        Telegram
+      </a>
     </p>
-
-    <p>
-      Updated September 2026
-    </p>
-
   </footer>
 
 </main>
