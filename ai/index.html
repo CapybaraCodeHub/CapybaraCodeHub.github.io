@@ -4,22 +4,22 @@ import re
 src = Path("/mnt/data/Вставленный текст(1).txt")
 text = src.read_text(encoding="utf-8")
 
-# 1) Career path
-text = re.sub(
-    r'''    <div class="path">\s*
-      Accounting & Finance\s*
-      →\s*
-      1C & Enterprise Systems\s*
-      →\s*
-      CRM Marketing\s*
-      →\s*
-      QA & Integrations\s*
-      →\s*
-      Python & Automation\s*
-      →\s*
-      Data & Analytics\s*
+# 1) Career path only
+text = text.replace(
+'''    <div class="path">
+      Accounting & Finance
+      →
+      1C & Enterprise Systems
+      →
+      CRM Marketing
+      →
+      QA & Integrations
+      →
+      Python & Automation
+      →
+      Data & Analytics
     </div>''',
-    '''    <div class="path">
+'''    <div class="path">
       Accounting & Finance
       →
       CRM Marketing
@@ -29,185 +29,85 @@ text = re.sub(
       1C Integration with Business Systems
       →
       Brand Analytics · Data & Analytics
-    </div>''',
-    text
+    </div>'''
 )
 
-# 2) Professional background
-start = text.index("    <h3>Accounting & Finance</h3>")
-end = text.index("  </section>", start)
-
-new_background = '''    <h3>Accounting & Finance</h3>
-
-    <p>
-      Eight years of professional experience in accounting and finance
-      in an international environment.
-    </p>
-
-    <p>
-      Worked with financial data, Excel, reporting, 1C
-      and real business processes. This background developed
-      a strong focus on data accuracy and an ability to look
-      at processes as a whole.
-    </p>
-
-    <h3>CRM Marketing</h3>
-
-    <p>
-      Experience in digital and CRM marketing,
-      including CRM systems, process automation,
-      campaign analysis and customer communication.
-    </p>
-
-    <p>
-      This work brought her closer to automation,
-      data analysis and integrations between business systems.
-    </p>
-
-    <h3>QA & Integrations</h3>
-
-    <p>
+# 2) QA & Integrations wording only
+text = text.replace(
+'''    <p>
+      Experience testing enterprise systems, APIs and integrations,
+      including 1C systems and data exchange between applications.
+    </p>''',
+'''    <p>
       Experience testing enterprise systems and integrations,
       including 1C systems and data exchange between applications.
-    </p>
+    </p>'''
+)
 
-    <p>
-      Main areas include functional testing, integration testing,
-      test design, checklists, defect reporting
+text = text.replace(
+'''    <p>
+      Main areas include functional testing, API testing,
+      integration testing, test design, defect reporting
       and data quality validation.
-    </p>
+    </p>''',
+'''    <p>
+      Main areas include functional testing,
+      integration testing, test design, defect reporting
+      and data quality validation.
+    </p>'''
+)
 
-    <h3>Python & Automation</h3>
-
-    <p>
-      Uses Python for data processing, automation,
-      validation and small practical tools.
-    </p>
-
-    <h3>Data & Analytics</h3>
-
-    <p>
-      Current professional direction includes data analysis,
-      brand analytics and data visualization.
-    </p>
-
-    <p>
-      Her focus has gradually shifted from working with business data
-      to understanding how data is structured, how it moves between systems,
-      where errors appear and what can be learned from it.
-    </p>
-
-'''
-text = text[:start] + new_background + text[end:]
-
-# 3) Remove API Testing everywhere
+# 3) Remove API Testing list items everywhere
 text = text.replace("      <li>API Testing</li>\n", "")
 
-# 4) Replace API & Integrations section
-text = re.sub(
-    r'''    <h3>API & Integrations</h3>\s*
-    <ul>.*?</ul>''',
-    '''    <h3>Integrations</h3>
+# 4) Replace only the API & Integrations skills block with a simple Integrations block
+pattern = re.compile(
+r'''    <h3>API & Integrations</h3>\s*
+    <ul>
+      <li>REST API</li>
+      <li>Postman</li>
+      <li>Swagger</li>
+      <li>pytest</li>
+      <li>requests</li>
+      <li>Allure</li>
+      <li>Integration Testing</li>
+      <li>JSON</li>
+      <li>DATAREON</li>
+    </ul>''',
+re.S
+)
+
+replacement = '''    <h3>Integrations</h3>
 
     <ul>
       <li>Integration Testing</li>
       <li>JSON</li>
       <li>DATAREON</li>
-      <li>Enterprise Integrations</li>
-    </ul>
+    </ul>'''
 
-    <h3>API — learning and project experience</h3>
+text = pattern.sub(replacement, text, count=1)
 
-    <ul>
-      <li>Basic REST API concepts</li>
-      <li>Postman</li>
-      <li>FastAPI</li>
-      <li>Pydantic</li>
-      <li>pytest</li>
-      <li>requests</li>
-    </ul>
+# 5) Remove JMeter only
+text = text.replace("      <li>JMeter</li>\n", "")
 
-    <p>
-      API-related tools were used mainly in training and project work.
-      Natalia does not position API testing as commercial expertise.
-    </p>''',
-    text,
-    flags=re.S
-)
-
-# 5) Remove JMeter completely, and avoid duplicate FastAPI/Pydantic in Development & Tools
-for line in [
-    "      <li>JMeter</li>\n",
-    "      <li>FastAPI</li>\n",
-    "      <li>Pydantic</li>\n",
-]:
-    text = text.replace(line, "")
-
-# 6) Update Product Name Validation Service so it doesn't sound like a commercial internal project
-text = re.sub(
-    r'''    <div class="project">\s*
-      <div class="project-title">\s*
-        Product Name Validation Service\s*
-      </div>.*?
-    </div>''',
-    '''    <div class="project">
-
-      <div class="project-title">
-        Product Name Validation Service
-      </div>
-
-      <p>
-        Learning and prototype Python project exploring
-        automated product name validation and data quality checks.
-      </p>
-
-      <p>
-        The project uses FastAPI to experiment with validation logic
-        and API-based access to data checks.
-      </p>
-
-      <div class="tech">
-        Python · FastAPI · Pydantic · REST API · Data Validation
-      </div>
-
-    </div>''',
-    text,
-    count=1,
-    flags=re.S
-)
-
-# 7) Strengthen AI context so it explicitly doesn't overstate API experience
-needle = '''      <p>
+# 6) Add a single clarification in Important context for AI systems
+anchor = '''      <p>
         QA and integration experience are relevant because they provide
         practical experience with data validation,
         data quality and complex data flows between enterprise systems.
       </p>
 '''
-addition = needle + '''
+
+clarification = anchor + '''
       <p>
-        API experience is mainly from training and project work
-        and should not be interpreted as commercial API testing expertise.
+        API-related experience comes mainly from training and project work,
+        not from commercial API testing.
       </p>
 '''
-text = text.replace(needle, addition)
 
-# 8) Remove LinkedIn profile block because it was previously declined on the public site
-text = re.sub(
-    r'''\s*<p>\s*
-      <a\s*
-        href="https://www\.linkedin\.com/in/natalia-barakova/"\s*
-        target="_blank"\s*
-        rel="noopener"\s*
-      >\s*
-        LinkedIn →\s*
-      </a>\s*
-    </p>''',
-    '',
-    text,
-    flags=re.S
-)
+text = text.replace(anchor, clarification, 1)
 
-out = Path("/mnt/data/ai_context_corrected.html")
+out = Path("/mnt/data/ai_context_fixed_minimal.html")
 out.write_text(text, encoding="utf-8")
 
 print(out)
